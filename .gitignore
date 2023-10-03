@@ -1,0 +1,6 @@
+*.json
+
+dist/
+dist.old/
+build/
+venv/
