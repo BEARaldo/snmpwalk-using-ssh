@@ -1,6 +1,11 @@
 *.json
+*_test.py
+*.spec
 
 dist/
+.idea/
+__pycache__/
 dist.old/
 build/
 venv/
+snmp/

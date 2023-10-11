@@ -1,5 +1,6 @@
 # import time
 # import mysql.connector
+import time
 import pandas as pd
 import os
 from sqlalchemy import create_engine
@@ -22,10 +23,13 @@ def log_to_db(data, table_name):
     # engine = create_engine("mysql+mysqlconnector://root:root@127.0.0.1:3306/teste")
 
     print('Conectado ao Banco..')
-
-    data.to_sql(name=table_name, con=db, if_exists='replace', index=False)
-    print("Dados inseridos no MySQL com sucesso.")
-
+    try:
+        data.to_sql(name=table_name, con=db, if_exists='replace', index=True)
+        print("Dados inseridos no MySQL com sucesso.")
+    except Exception as e:
+        input(f'Erro as {time.time()}. Erro: {e}!\n')
+    finally:
+        db.dispose()
 
 
 
@@ -34,8 +38,10 @@ def main():
     if df.empty:
         input(f"Confira se o arquivo existe no caminho {file_path}")
         sys.exit(0)
-        sys.exit(-1)
-    log_to_db(df, table_name)
+        return
+        # sys.exit(-1)
+    else:
+        log_to_db(df, table_name)
 
 if __name__ == '__main__':
     main()

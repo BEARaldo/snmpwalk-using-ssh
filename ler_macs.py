@@ -41,7 +41,7 @@ def main():
     if discovered_mac:
         combined_df = pd.concat(discovered_mac, ignore_index=True)
         output_file_path = 'resultados_encontrados.xlsx'
-        combined_df.to_excel(output_file_path, index=False)
+        combined_df.to_excel(output_file_path, index=True)
         print(f"Resultados salvos em '{output_file_path}'")
     else:
         print("Nenhum resultado para salvar.")

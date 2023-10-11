@@ -28,6 +28,7 @@ def dependencies_install():
         print("Erro ao instalar as dependências.")
 
 
+
 # def key_detection():
 #     while True:
 #         if keyboard.is_pressed('ctrl+s'):

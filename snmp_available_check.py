@@ -26,7 +26,7 @@ zapi.login(data['user'], data['password'])
 #excel save
 
 def save_excel(host_list, qnt=0):
-    path = Path(f'{config_path["save_filePath"]}hosts com falha SNMPa.xlsx')
+    path = Path(f'{config_path["save_filePath"]}hosts com falha SNMP.xlsx')
     wb = Workbook()
     hosts_xlsx = wb.active
     count = 1
