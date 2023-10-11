@@ -12,15 +12,9 @@ with open("sshsnmp_config.json", "r") as config_file:
 table_name = db_auth["db_Table"]
 file_path = f'{db_auth["load_filePath"]}log SNMPwalk MAC-PORTA.xlsx'
 def log_to_db(data, table_name):
-    # connection = mysql.connector.connect(
-    #     host='127.0.0.1',
-    #     port='3306',
-    #     user='root',
-    #     password='root',
-    #     database='teste'
-    # )
+
     db = create_engine(f"mysql+mysqlconnector://{db_auth['db_Login']}:{db_auth['db_Pass']}@{db_auth['db_Ip']}:{db_auth['db_Port']}/logs")
-    # engine = create_engine("mysql+mysqlconnector://root:root@127.0.0.1:3306/teste")
+
 
     print('Conectado ao Banco..')
     try:
